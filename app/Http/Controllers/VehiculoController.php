@@ -13,7 +13,7 @@ class VehiculoController extends Controller
     public function index(){
         $vehiculos = Vehiculo::select('vehiculo.id','vehiculo.placa','vehiculo.propietario','vehiculo.contacto','tipo_tarifa.desc')->join('tipo_tarifa', 'tipo_tarifa.id', '=', 'vehiculo.tipo_tarifa_id')->get();
         return view("vehiculos.list",compact('vehiculos'));
-        // dd($vehiculos);
+
     }
     public function insertar(){
         $tarifa = Tipo_tarifa::all();
@@ -47,7 +47,7 @@ class VehiculoController extends Controller
         $vehiculo->tipo_tarifa_id = $validateData["tipo_tarifa_id"];
         $vehiculo->save();
 
-        return back();
+        return redirect()->back()->with('message', 'Insercion Exitosa !');
     }
     public function insertput(Request $request, $id){
         $post = $request->all();
@@ -59,7 +59,6 @@ class VehiculoController extends Controller
             'tipo_tarifa_id'=>'required|integer'
         ]);
         Vehiculo::where("id","=",$id)->update($validateData);
-
-        return redirect()->back()->with('message', 'IT WORKS!');
+        return redirect()->back()->with('message', 'Actualizacion Exitosa!');
     }
 }

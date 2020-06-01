@@ -66,6 +66,7 @@
                 <button class="btn btn-primary">
                     Guardar
                 </button>
+                <a href=" {{url('vehiculo/listar')}} ">Listado de Vehiculos</a>
             {{ Form::close() }}
         </div>
         <div class="col-md-4"></div>

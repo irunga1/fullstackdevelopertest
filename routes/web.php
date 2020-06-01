@@ -37,10 +37,19 @@ Route::group(["prefix"=>"vehiculo"],function(){
     Route::get('modificar/{id}', 'VehiculoController@modificar')->name('modificar')->where(['id'=>'[0-9]+']);
     Route::put('insertput/{id}', 'VehiculoController@insertput')->name('inser')->where(['id'=>'[0-9]+']);
 });
+Route::group(["prefix"=>"tipotarifa"],function(){
+    Route::get('listar', 'TipotarifaController@index')->name('listar');
+    Route::get('', 'TipotarifaController@index')->name('listar');
+    Route::get('insertar', 'TipotarifaController@insertar')->name('insertar');
+    Route::post('insertpost', 'TipotarifaController@insertpost')->name('insertarpost');
+    Route::get('modificar/{id}', 'TipotarifaController@modificar')->name('modificar')->where(['id'=>'[0-9]+']);
+    Route::put('insertput/{id}', 'TipotarifaController@insertput')->name('inser')->where(['id'=>'[0-9]+']);
+});
 Route::group(["prefix"=>"tiempo"],function(){
     Route::get('listar', 'TiemposController@index')->name('listar');
-    Route::get('', 'TiemposController@index')->name('listar');
+    Route::get('', 'TiemposController@insertar')->name('listar');
     Route::get('insertar', 'TiemposController@insertar')->name('insertar');
-    Route::post('insertpost', 'VehiculoController@insertpost')->name('insertarpost');
+    Route::post('insertpost', 'TiemposController@insertpost')->name('insertarpost');
+    Route::post('getoperacion', 'TiemposController@getOperacion')->name('getOperacion');
 
 });

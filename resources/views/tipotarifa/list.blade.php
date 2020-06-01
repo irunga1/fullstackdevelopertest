@@ -5,7 +5,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <span class="btn btn-primary">
-                <a href=" {{url("vehiculo/insertar")}}">Crear</a>
+                <a href=" {{url("tipotarifa/insertar")}}">Crear</a>
             </span>
         </div>
         <div class="col-md-2"></div>
@@ -17,32 +17,24 @@
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Placa</th>
-                        <th>Propietario</th>
-                        <th>Telefono/Whatsapp</th>
-                        <th>Tipo de Tarifa</th>
+                        <th>Descripcion</th>
+                        <th>Monto</th>
                         <th>Modificar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($vehiculos as $it)
+                    @foreach($tipotarifa as $it)
                     <tr>
-                        <td>{{$it->placa}}</td>
-                        <td>{{$it->propietario}}</td>
-                        <td>{{$it->contacto}}</td>
                         <td>{{$it->desc}}</td>
-                        <td><a href="{{url("vehiculo/modificar/$it->id")}}" class="btn btn-info">Modificar</a></td>
+                        <td>{{$it->monto}}</td>
+                        <td><a href="{{url("tipotarifa/modificar/$it->id")}}" class="btn btn-info">Modificar</a></td>
                     </tr>
                     @endforeach
-
-
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Placa</th>
-                        <th>Ppropietario</th>
-                        <th>Telefono/Whatsapp</th>
-                        <th>Tipo de Tarifa</th>
+                        <th>Descripcion</th>
+                        <th>Monto</th>
                         <th>Modificar</th>
                     </tr>
                 </tfoot>
